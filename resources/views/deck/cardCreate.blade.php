@@ -34,7 +34,7 @@
                             @method('DELETE')
                             <button>Deletar</button>
                         </form>
-                        <a href="#">Editar</a>
+                        <a href="{{ route('editar', $card->id) }}">Editar</a>
                     </th>
                 </tr>
             @endforeach

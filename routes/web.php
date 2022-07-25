@@ -13,3 +13,7 @@ Route::post('/', [CardController::class, 'create'])->name('create');
 Route::delete('/{id}', [CardController::class, 'destroy'])->name('delete');
 
 
+Route::get('/{id}', [CardController::class, 'edit'])->name('editar');
+
+Route::put('/{id}', [CardController::class, 'update'])->name('atualizar');
+
