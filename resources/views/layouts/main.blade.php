@@ -8,8 +8,8 @@
 </head>
 <body>
     <div>
-        <a href="{{ route('home.index') }}">Home</a>
-        <a href="{{ route('deck.deckList') }}">Decks</a>
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('listDeck') }}">Decks</a>
         <a href="#">Options</a>
     </div>
     @yield('body')
