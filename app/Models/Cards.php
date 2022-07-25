@@ -9,6 +9,8 @@ class Cards extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     protected $fillable = [
         'front',
         'back',

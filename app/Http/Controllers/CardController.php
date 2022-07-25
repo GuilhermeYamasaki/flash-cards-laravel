@@ -22,7 +22,7 @@ class CardController extends Controller
 
     public function card(): View
     {
-        $cards = Cards::get(['front','back']);
+        $cards = Cards::get(['id','front','back']);
         return view('deck.cardCreate', compact('cards'));
     }
 
@@ -30,8 +30,14 @@ class CardController extends Controller
     {
         $newCards = $request->all();
         Cards::create($newCards);
-        return redirect()->route('home');
-    } 
+        return redirect()->route('createCard');
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        Cards::findOrFail($id)->delete();
+        return redirect()->route('createCard');
+    }
 
 
 

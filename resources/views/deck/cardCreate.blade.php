@@ -17,6 +17,7 @@
     <table>
         <thead>
             <tr>
+                <th>Number</th>
                 <th>Frente</th>
                 <th>Verso</th>
             </tr>
@@ -24,10 +25,11 @@
         <tbody>
             @foreach ($cards as $card)
                 <tr>
+                    <td>{{ $card->id }}</td>
                     <td>{{ $card->front }}</td>
                     <td>{{ $card->back }}</td>
                     <th>
-                        <form action="#" method="POST">
+                        <form action="{{ route('delete', $card->id) }} " method="POST">
                             @csrf
                             @method('DELETE')
                             <button>Deletar</button>

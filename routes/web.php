@@ -7,5 +7,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [CardController::class, 'home'])->name('home');
 Route::get('/decks', [CardController::class, 'deck'])->name('listDeck');
 Route::get('/cards', [CardController::class, 'card'])->name('createCard');
-Route::post('', [CardController::class, 'create'])->name('create');
+
+Route::post('/', [CardController::class, 'create'])->name('create');
+
+Route::delete('/{id}', [CardController::class, 'destroy'])->name('delete');
+
 
