@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cards;
+use App\Models\Card;
+use App\Models\Deck;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -10,75 +11,19 @@ use Illuminate\View\View;
 
 class CardController extends Controller
 {
-    public function home(): View
+
+    public function create(): View
     {
-        return view('home.home');
+        $decks = Deck::get(['id', 'name']);
+        return view('card.new', compact('decks'));
     }
 
-
-    public function deck(): View
+    public function store(Request $request): RedirectResponse
     {
-        return view('deck.deckList');
+        $data = $request->all();
+
+        Card::create($data);
+
+        return redirect()->route('home');
     }
-
-
-    public function card(): View
-    {
-        $cards = Cards::get(['id','front','back']);
-        return view('deck.cardCreate', compact('cards'));
-    }
-
-
-    public function create(Request $request): RedirectResponse
-    {
-        $newCards = $request->all();
-        Cards::create($newCards);
-        return redirect()->route('createCard');
-    }
-
-
-    public function destroy(int $id): RedirectResponse
-    {
-        Cards::findOrFail($id)->delete();
-        return redirect()->route('createCard');
-    }
-
-
-    public function edit(int $id)
-    {
-        try {
-            $takeCard = Cards::findOrFail($id);
-        }
-        catch(Exception $exception) {
-            return redirect()->route('createCard');
-        }
-
-        return view('deck.edit', compact('takeCard')); //leva dados para o edit.blade id, front e back
-    }
-
-
-    public function update(Request $request, $id)
-    {
-        $newData = $request->all(); //novos dados vindo do form
-
-        Cards::findOrFail($id)->update($newData);
-
-        return redirect()->route('createCard');
-    }
-
-    //deck
-    public function createDeck(Request $request): RedirectResponse
-    {
-        $newDeck = $request->all(); //pega input do deckname e armazena no $newDeck
-        Cards::create($newDeck);//sala o valor do input no banco
-        return redirect()->route('showDeck');
-    }
-
-    public function showDeck(): View
-    {
-        $deckName = Cards::get('deck'); //tava venbdo outra coisa
-        return view('deck.deckList', compact('deckName'));
-
-    }
-    
 }
