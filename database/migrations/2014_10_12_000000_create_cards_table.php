@@ -15,8 +15,9 @@ class CreateCardsTable extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('front');
-            $table->string('back');
+            $table->string('deck')->nullable();
+            $table->string('front')->nullable();
+            $table->string('back')->nullable();
         });
     }
 

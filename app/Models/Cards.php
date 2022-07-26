@@ -12,6 +12,7 @@ class Cards extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'deck',
         'front',
         'back',
     ];
