@@ -3,8 +3,11 @@
     <h1>Bem-vindo ao seus decks</h1>
     <h2>Seus decks:</h2>
     <div>
-        <a href=" {{ route('createCard') }}">Criar/Editar</a>
-        <a href="#">Iniciar estudos</a>
+        @foreach($deckName as $name)
+            <p>{{ $name->deck }}</p>
+            <a href=" {{ route('createCard') }}">Criar/Editar</a>
+            <a href="#">Iniciar estudos</a>
+        @endforeach    
     </div>
 
     <div>
@@ -16,6 +19,6 @@
         </form> 
     </div>
     
-    {{ $deckName }}
     
+
 @endsection
