@@ -66,19 +66,4 @@ class CardController extends Controller
         return redirect()->route('createCard');
     }
 
-    //deck
-    public function createDeck(Request $request): RedirectResponse
-    {
-        $newDeck = $request->all(); //pega input do deckname e armazena no $newDeck
-        Cards::create($newDeck);//sala o valor do input no banco
-        return redirect()->route('showDeck');
-    }
-
-    public function showDeck(): View
-    {
-        $deckName = Cards::get('deck'); //tava venbdo outra coisa
-        return view('deck.deckList', compact('deckName'));
-
-    }
-    
 }

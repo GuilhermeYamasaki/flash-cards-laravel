@@ -3,22 +3,23 @@
     <h1>Bem-vindo ao seus decks</h1>
     <h2>Seus decks:</h2>
     <div>
-        @foreach($deckName as $name)
-            <p>{{ $name->deck }}</p>
-            <a href=" {{ route('createCard') }}">Criar/Editar</a>
+        <p>Nome dos decks ficam aqui</p>
+        @foreach($deckName as $deck)
+            <p>{{ $deck->name }}</p>
+            <a href="#">Criar/Editar</a>
             <a href="#">Iniciar estudos</a>
-        @endforeach    
+        @endforeach
     </div>
 
     <div>
        <h2>Criar novo deck</h2>
         <form action="{{ route('createDeck') }}" method="POST">
             @csrf
-            <input type="text" placeholder="Seu novo deck" name="deck" required />
+            <input type="text" placeholder="Seu novo deck" name="name" required />
             <button>Criar deck</button>
-        </form> 
+        </form>
     </div>
-    
-    
+
+
 
 @endsection
