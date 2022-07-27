@@ -3,17 +3,23 @@
     <h1>Bem-vindo ao seus decks</h1>
     <h2>Seus decks:</h2>
     <div>
-        <p>Nome dos decks ficam aqui</p>
-        @foreach($deckName as $deck)
-            <p>{{ $deck->name }}</p>
-            <a href="#">Criar/Editar</a>
-            <a href="#">Iniciar estudos</a>
-            <form action="{{ route('deleteDeck', $deck->id) }} " method="POST">
-                @csrf
-                @method('DELETE')
-                <button>Deletar deck</button>
-            </form>
-        @endforeach
+        @if($deckName->isEmpty())
+            <p>Você ainda não criou decks.</p>
+            <p>Bora criar um deck novo ?</p>
+        @else
+
+            @foreach($deckName as $deck)
+                <p>{{ $deck->name }}</p>
+                <a href="{{ route('createCard') }}">Criar/Editar</a>
+                <a href="#">Iniciar estudos</a>
+                <form action="{{ route('deleteDeck', $deck->id) }} " method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button>Deletar deck</button>
+                </form>
+            @endforeach
+
+        @endif
     </div>
 
     <div>
