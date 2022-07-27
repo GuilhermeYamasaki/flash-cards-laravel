@@ -17,6 +17,7 @@ class CreateCardsTable extends Migration
             $table->id();
             $table->string('front')->nullable();
             $table->string('back')->nullable();
+            $table->foreignId('deck_id')->constrained('deck')->cascadeOnDelete()->cascadeOnUpdate();
         });
     }
 

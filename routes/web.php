@@ -16,7 +16,7 @@ Route::delete('/deletardeck/{id}', [DeckController::class, 'delete'])->name('del
 
 
 //card routes
-Route::get('/cards', [CardController::class, 'card'])->name('createCard');
+Route::get('/cards', [CardController::class, 'card'])->name('createCard'); //rota para a página de cartas
 Route::post('/', [CardController::class, 'create'])->name('create');
 
 //global routes

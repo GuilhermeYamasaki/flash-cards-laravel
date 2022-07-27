@@ -15,4 +15,8 @@ class Deck extends Model
         'id',
         'name',
     ];
+
+    public function cards(){
+        return $this->hasMany(Cards::class);
+    }
 }

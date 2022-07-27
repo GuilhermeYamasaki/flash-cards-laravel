@@ -4,6 +4,7 @@
 
     <h2>Crie cartas</h2>
     <div>
+        {{-- Form para criar front e back das cartas --}}
         <form action="{{ route('create') }}" method="POST">
             @csrf
             <input type="text" name="front" placeholder="front" required />

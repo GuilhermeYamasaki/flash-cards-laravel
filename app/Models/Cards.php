@@ -16,4 +16,8 @@ class Cards extends Model
         'front',
         'back',
     ];
+
+    public function deck(){
+        return $this->belongsTo(Deck::class);
+    }
 }
