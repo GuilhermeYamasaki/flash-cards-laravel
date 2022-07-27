@@ -8,6 +8,7 @@
             <p>{{ $deck->name }}</p>
             <a href="#">Criar/Editar</a>
             <a href="#">Iniciar estudos</a>
+            <a href="#">Deletar deck</a>
         @endforeach
     </div>
 

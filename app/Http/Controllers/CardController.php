@@ -10,17 +10,10 @@ use Illuminate\View\View;
 
 class CardController extends Controller
 {
-    public function home(): View
+    public function home():View
     {
         return view('home.home');
     }
-
-
-    public function deck(): View
-    {
-        return view('deck.deckList');
-    }
-
 
     public function card(): View
     {

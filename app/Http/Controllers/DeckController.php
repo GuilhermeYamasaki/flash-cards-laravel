@@ -20,8 +20,8 @@ class DeckController extends Controller
     public function show():View
     {
         $deckName = Deck::get(['id','name']);
-        return view('deck.deckList', compact('deckName'));
+        return view('deck.deckList', compact(['deckName']));
     }
 
-    
+
 }
