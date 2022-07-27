@@ -14,13 +14,19 @@ class DeckController extends Controller
     {
         $newDeck = $request->all();
         Deck::create($newDeck);
-        return redirect()->route('showDeck');
+        return redirect()->route('deckList');
     }
 
-    public function show():View
+    public function show():View //pega os dados e redireciona para outra view
     {
         $deckName = Deck::get(['id','name']);
         return view('deck.deckList', compact(['deckName']));
+    }
+
+    public function delete(int $id): RedirectResponse
+    {
+        Deck::findOrFail($id)->delete();
+        return redirect()->route('deckList');
     }
 
 

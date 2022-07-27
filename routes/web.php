@@ -5,13 +5,15 @@ use App\Http\Controllers\DeckController;
 use App\Http\Controllers\CardController;
 use Illuminate\Support\Facades\Route;
 
-//button routes
+
 Route::get('/', [CardController::class, 'home'])->name('home');
-Route::get('/decklist', [DeckController::class, 'show'])->name('deckList');
+Route::get('/decklist', [DeckController::class, 'show'])->name('deckList'); //rota para a página com decks
 
 
 //deck routes
 Route::post('/criardeck', [DeckController::class, 'create'])->name('createDeck');
+Route::delete('/deletardeck/{id}', [DeckController::class, 'delete'])->name('deleteDeck');
+
 
 //card routes
 Route::get('/cards', [CardController::class, 'card'])->name('createCard');

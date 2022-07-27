@@ -8,7 +8,11 @@
             <p>{{ $deck->name }}</p>
             <a href="#">Criar/Editar</a>
             <a href="#">Iniciar estudos</a>
-            <a href="#">Deletar deck</a>
+            <form action="{{ route('deleteDeck', $deck->id) }} " method="POST">
+                @csrf
+                @method('DELETE')
+                <button>Deletar deck</button>
+            </form>
         @endforeach
     </div>
 

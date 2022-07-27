@@ -12,6 +12,7 @@ class Deck extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'id',
         'name',
     ];
 }
